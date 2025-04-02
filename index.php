@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$database = "company_A";
+$database = "company_a";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $database);
@@ -33,27 +33,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['search'])) {
                                 <th>Last Name</th>
                                 <th>Date of Birth</th>
                                 <th>Designation</th>
-                                <th>Start date</th>
+                                <th>Start Date</th>
                                 <th>Salary</th>
                                 <th>Branch</th>
-                                
                             </tr>";
 
         while ($row = $result->fetch_assoc()) {
             $searchResults .= "<tr>
-                                <td>{$row['ID']}</td>
+                                <td>{$row['ID']}</td> 
                                 <td>{$row['first_name']}</td>
                                 <td>{$row['last_name']}</td>
                                 <td>{$row['date_of_birth']}</td>
                                 <td>{$row['designation']}</td>
                                 <td>{$row['start_date']}</td>
+                                <td>{$row['salary']}</td>
                                 <td>{$row['branch']}</td>
-                                
                             </tr>";
         }
         $searchResults .= "</table>";
     } else {
-        $searchResults = "<p>No residents found matching your search.</p>";
+        $searchResults = "<p>No employees found matching your search.</p>";
     }
 }
 
@@ -73,27 +72,18 @@ $conn->close();
 
 <body>
     <div class="body-container">
-
         <div class="inpt-div">
-            
-            <input type="text" name="name" id="name" placeholder="Enter your First or Last Name">
-            <button type="submit" name="submit" id="submit">Search</button>
+            <!-- Add a form to handle search -->
+            <form method="POST" action="">
+                <input type="text" name="search" id="search" placeholder="Enter your First or Last Name">
+                <button type="submit">Search</button>
+            </form>
         </div>
-
-       
-
     </div>
-    <div class="result-div">
 
-        <div class="inpt-div">
-            
-            <?php echo = $searchResults?>
-        </div>
-
-       
-
+    <div id="result-div">
+        <?php echo $searchResults; ?>
     </div>
-   
 
 </body>
 

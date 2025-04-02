@@ -39,3 +39,6 @@ button:hover{
     align-items: center;
     margin-top: 20px;
 }
+#result-div table{
+    border-collapse: collapse;
+}
