@@ -28,33 +28,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['search'])) {
     if ($result->num_rows > 0) {
         $searchResults .= "<table border='1'>
                             <tr>
-                                <th>Full Name</th>
+                                <th>ID</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
                                 <th>Date of Birth</th>
-                                <th>NIC</th>
-                                <th>Address</th>
-                                <th>Phone</th>
-                                <th>Email</th>
-                                <th>Occupation</th>
-                                <th>Gender</th>
-                                <th>Registered Date</th>
-                                <th>Actions</th>
+                                <th>Designation</th>
+                                <th>Start date</th>
+                                <th>Salary</th>
+                                <th>Branch</th>
+                                
                             </tr>";
 
         while ($row = $result->fetch_assoc()) {
             $searchResults .= "<tr>
-                                <td>{$row['full_name']}</td>
-                                <td>{$row['dob']}</td>
-                                <td>{$row['nic']}</td>
-                                <td>{$row['address']}</td>
-                                <td>{$row['phone']}</td>
-                                <td>{$row['email']}</td>
-                                <td>{$row['occupation']}</td>
-                                <td>{$row['gender']}</td>
-                                <td>{$row['registered_date']}</td>
-                                <td>
-                                    <a href='edit.php?id={$row['id']}'>Edit</a> | 
-                                    <a href='delete.php?id={$row['id']}'>Delete</a>
-                                </td>
+                                <td>{$row['ID']}</td>
+                                <td>{$row['first_name']}</td>
+                                <td>{$row['last_name']}</td>
+                                <td>{$row['date_of_birth']}</td>
+                                <td>{$row['designation']}</td>
+                                <td>{$row['start_date']}</td>
+                                <td>{$row['branch']}</td>
+                                
                             </tr>";
         }
         $searchResults .= "</table>";
@@ -93,8 +87,7 @@ $conn->close();
 
         <div class="inpt-div">
             
-            <input type="text" name="name" id="name" placeholder="Enter your First or Last Name">
-            <button type="submit" name="submit" id="submit">Search</button>
+            <?php echo = $searchResults?>
         </div>
 
        
