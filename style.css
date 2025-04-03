@@ -41,4 +41,21 @@ button:hover{
 }
 #result-div table{
     border-collapse: collapse;
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+#result-div th, #result-div td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+#result-div th {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+#result-div tr:nth-child(even) {
+    background-color: #f2f2f2;
 }
